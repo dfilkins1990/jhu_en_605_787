@@ -1,0 +1,70 @@
+section{
+    background-color:#A9A9A9;
+    padding-left:15px;
+    padding-right:15px;
+    color:#000000;
+}
+
+h1, h3, section, a{
+    font-weight:bold;
+}
+
+ul{
+    background-color:#FFFFFF;
+}
+
+li{
+    border: 1px solid #000000;
+}
+
+/* Change "Food, LLC" to black text */
+.navbar-default .navbar-brand{
+    color:#000000;
+}
+
+.navbar-brand{
+    font-size: 1.5em;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar{
+    border: 1px solid #000000;
+}
+
+#collapse_button:hover{
+    border: 1px solid #FFFFFF;
+    background-color:#FFFFFF;
+}
+
+
+
+.navbar-nav{
+    margin-bottom:0; /* Gets rid of extra space after Sushi in dropdown */
+}
+
+#nav-list{
+    text-align:center;
+    margin-top:0; /* Gets rid of extra space between navbar-header class and nav-list */
+}
+
+#header-nav{
+    background-color:#A9A9A9;
+    border-radius: 0;
+    border: 0;
+}
+
+#link_to_chicken, #link_to_beef, #link_to_sushi{
+    color:#000000;
+}
+
+#link_to_chicken:hover, #link_to_beef:hover, #link_to_sushi:hover{
+    color:#0000FF;
+}
+
+/* Attempt at mimicking space on Mockup for navbar-brand in mobile view*/
+@media (max-width: 767px){
+    #company_name{
+        padding-left: 40px
+    }
+}

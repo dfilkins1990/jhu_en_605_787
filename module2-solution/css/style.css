@@ -1,0 +1,247 @@
+/** Base Style **/
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+}
+
+section{
+    /*Was hard to see border so I made 2px instead of one as described in assignment */
+    border: 2px solid #000000;
+    margin:10px;
+    background: #808080;
+
+    /* JHU Additional Task 2 */
+    height: 70px;
+    overflow:hidden;
+    cursor: s-resize; /* This looked the most applicable of the resize cursor options in my opinion. */
+}
+
+section:hover{
+    overflow-y: scroll;
+}
+
+.row{
+    width:100%;
+}
+
+.section_title{
+    border: 1px solid #000000;
+    margin-top: 0px;
+    padding: 3px;
+    width: 33%;
+    text-align:center;
+    float:right;
+}
+
+#page_header{
+    text-align: center;
+}
+
+#chicken_title, #mobile_chicken_title{
+    background-color: #FA8072;
+}
+
+#beef_title, #mobile_beef_title{
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
+
+#sushi_title, #mobile_sushi_title{
+    background-color: #FFFF00;
+}
+
+#chicken_description{
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#beef_description, #sushi_description{
+    padding-top:15px;
+    padding-left:10px;
+    padding-right:30px;
+}
+
+/* Using the simple responsive framework developed in Lecture 24 */
+
+/** Desktop View **/
+@media (min-width: 992px){
+    .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+        float: left;
+        border: 1px;
+      }
+      .col-lg-1 {
+        width: 8.33%;
+      }
+      .col-lg-2 {
+        width: 16.66%;
+      }
+      .col-lg-3 {
+        width: 25%;
+      }
+      .col-lg-4 {
+        width: 33.33%;
+      }
+      .col-lg-5 {
+        width: 41.66%;
+      }
+      .col-lg-6 {
+        width: 50%;
+      }
+      .col-lg-7 {
+        width: 58.33%;
+      }
+      .col-lg-8 {
+        width: 66.66%;
+      }
+      .col-lg-9 {
+        width: 74.99%;
+      }
+      .col-lg-10 {
+        width: 83.33%;
+      }
+      .col-lg-11 {
+        width: 91.66%;
+      }
+      .col-lg-12 {
+        width: 100%;
+      }
+
+      #mobile_page_header{
+          display:none;
+      }
+
+      #mobile_chicken_title, #mobile_beef_title, #mobile_sushi_title{
+          display: none;
+      }
+
+    }
+
+/** Tablet View **/
+@media (min-width: 768px) and (max-width: 991px){
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        float: left;
+        border: 1px;
+      }
+      .col-md-1 {
+        width: 8.33%;
+      }
+      .col-md-2 {
+        width: 16.66%;
+      }
+      .col-md-3 {
+        width: 25%;
+      }
+      .col-md-4 {
+        width: 33.33%;
+      }
+      .col-md-5 {
+        width: 41.66%;
+      }
+      .col-md-6 {
+        width: 50%;
+      }
+      .col-md-7 {
+        width: 58.33%;
+      }
+      .col-md-8 {
+        width: 66.66%;
+      }
+      .col-md-9 {
+        width: 74.99%;
+      }
+      .col-md-10 {
+        width: 83.33%;
+      }
+      .col-md-11 {
+        width: 91.66%;
+      }
+      .col-md-12 {
+        width: 100%;
+      }
+
+      #mobile_page_header{
+        display: none;
+      }
+
+      #mobile_chicken_title, #mobile_beef_title, #mobile_sushi_title{
+        display: none;
+    }
+
+    #sushi_title{
+        width: 16.3%; /* This keeps the Sushi section title from being larger than Chicken and Beef */
+    }
+}
+
+/** Renamed the classes for the small size following the conventions **/
+/** Mobile View **/
+@media (max-width: 767px){
+    .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+        float: left;
+        border: 1px;
+      }
+      .col-sm-1 {
+        width: 8.33%;
+      }
+      .col-sm-2 {
+        width: 16.66%;
+      }
+      .col-sm-3 {
+        width: 25%;
+      }
+      .col-sm-4 {
+        width: 33.33%;
+      }
+      .col-sm-5 {
+        width: 41.66%;
+      }
+      .col-sm-6 {
+        width: 50%;
+      }
+      .col-sm-7 {
+        width: 58.33%;
+      }
+      .col-sm-8 {
+        width: 66.66%;
+      }
+      .col-sm-9 {
+        width: 74.99%;
+      }
+      .col-sm-10 {
+        width: 83.33%;
+      }
+      .col-sm-11 {
+        width: 91.66%;
+      }
+      .col-sm-12 {
+        width: 100%;
+      }
+    
+    /* JHU Additional Task 1 */
+    #page_header{
+        display:none;
+    }
+
+    #chicken_title, #beef_title, #sushi_title{
+        display: none;
+    }
+
+    #mobile_page_header{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.5em;
+        text-align: left;
+        margin-left: 10px; /*Left edge will align to the edge of the first content box below */
+    }
+
+    /* JHU Additional Task 3 */
+    .section_title{
+        text-align: center;
+        width:100%;
+        margin-bottom: 20px;
+    }
+
+    #chicken_description{
+        margin-top:30px;
+    }
+}
