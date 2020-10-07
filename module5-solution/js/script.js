@@ -183,7 +183,7 @@ function buildAndShowHomeHTML (categories) {
 dc.loadAboutContent = function() {
   showLoading("#main-content");
   //$('#main-content').load("/snippets/about.html");
-  $('main-content').load("https://github.com/dfilkins1990/jhu_en_605_787/blob/main/module5-solution/snippets/about.html");
+  //$('#main-content').load("/snippets/about.html");
 
   //Error Notes
   //Attempted method three ways but AJAX seemed the safest.
@@ -192,7 +192,7 @@ dc.loadAboutContent = function() {
   //https://www.w3schools.com/tags/tag_object.asp
   //https://www.w3schools.com/tags/tag_embed.asp
   //document.getElementById('main-content').innerHTML = "<object data=/snippets/about.html></object>";
-  //document.getElementById('main-content').innerHTML = "<embed type=\"text/html\" src= \"/snippets/about.html\">";
+  document.getElementById('main-content').innerHTML = "<embed type=\"text/html\" src= \"/snippets/about.html\">";
   
   //Calling randRating function to automatically generate rating without using setTimeout() craeted an error,
   //Uncaught TypeError: Cannot set property 'className' of undefined
