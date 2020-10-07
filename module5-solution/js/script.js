@@ -182,8 +182,8 @@ function buildAndShowHomeHTML (categories) {
 
 dc.loadAboutContent = function() {
   showLoading("#main-content");
-  $('#main-content').load("/snippets/about.html");
-  
+  //$('#main-content').load("/snippets/about.html");
+  $('main-content').load("https://github.com/dfilkins1990/jhu_en_605_787/blob/main/module5-solution/snippets/about.html");
 
   //Error Notes
   //Attempted method three ways but AJAX seemed the safest.
