@@ -9,49 +9,6 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
   });
 });
 
-//**NEEDED FOR BROWSER-SYNC**
-// JHU Additional Step 2d
-// create a function that produces a random number from 1 to 5 (inclusively).
-
-// function randNumber1through5(){
-//   return Math.floor(5 * Math.random()) + 1;
-// };
-
-// **DOES NOT WORK ON GITHUB, ONLY WITH BROWSER-SYNC
-// JHU Additional Step 2e
-// Use that random function to assign values to each classX property. An empty star should have its class value be class="fa fa-star-o". 
-// A filled star should have its class value be class="fa fa-star". The empty star, if any, should be the last one in the list.
-
-// NOTES: The insertProperty function as I saw it is explicitly used to change the contents of the propName within "{{ }}"
-// JavaScript does not seem to have an overload feature to build versions of functions with alternate paramaters so I kept it within
-// terms of how the Question was asked.
-// A classmate asked this question in the forums but did not get an answer.
-// If there is a way to implement the current insertProperty function to set the rating please let me know. Thanks!
-// Also as mentioend in the about.html, the class name for stars is different in Font Awesome 5.
-
-// function randRating(){
-//   //Randomly generate the number of stars using function from 2d
-//   var numberOfStars = randNumber1through5();
-  
-//   // From the first span up until the number of stars, set the class to fill in the stars.
-//   for(var i = 0; i < numberOfStars; i++){
-//     document.getElementById('main-content').getElementsByTagName('span')[i].className = "fas fa-star";
-//   }
-
-//   // From the span after the number of stars (array index = number of stars) to 5, set the class to put empty stars
-//   for(var j = numberOfStars; j < 5; j++){
-//     document.getElementById('main-content').getElementsByTagName('span')[j].className = "far fa-star";
-//   }
-
-//   // JHU Additioanl Step 3 
-//   // Display the numeric/textual number of stars right next to the star icons. For example, after the 4 filled 
-//   // in stars and one empty star, it should say the words “4-star rating”.
-  
-//   // NOTE: Using thie DOM method we can set the inner HTML of the last span element to show the textual rating
-//   document.getElementById('main-content').getElementsByTagName('span')[4].innerHTML = " " + numberOfStars + "-Star Rating";
-// }
-
-
 
 (function (global) {
 
@@ -182,8 +139,8 @@ function buildAndShowHomeHTML (categories) {
 
 dc.loadAboutContent = function() {
   showLoading("#main-content");
-  //$('#main-content').load("/snippets/about.html");
-  //$('#main-content').load("/snippets/about.html");
+  $('#main-content').load("/snippets/about.html");
+  setTimeout(randRating, 250);
 
   //Error Notes
   //Attempted method three ways but AJAX seemed the safest.
@@ -192,7 +149,7 @@ dc.loadAboutContent = function() {
   //https://www.w3schools.com/tags/tag_object.asp
   //https://www.w3schools.com/tags/tag_embed.asp
   //document.getElementById('main-content').innerHTML = "<object data=/snippets/about.html></object>";
-  document.getElementById('main-content').innerHTML = "<embed type=\"text/html\" src= \"/snippets/about.html\">";
+  //document.getElementById('main-content').innerHTML = "<embed type=\"text/html\" src= \"/snippets/about.html\">";
   
   //Calling randRating function to automatically generate rating without using setTimeout() craeted an error,
   //Uncaught TypeError: Cannot set property 'className' of undefined
@@ -206,19 +163,18 @@ dc.loadAboutContent = function() {
   //Without setTimeout method I would get a null reference error so I delayed the operation 250 milliseconds and it worked
   //Found how to use setTimeout function on w3schools,
   //https://www.w3schools.com/jsref/met_win_settimeout.asp
-  //WORKS on browser-sync
-  //setTimeout(randRating, 1000);
 };
 
 
+//**EXTRA COPY FROM TESTING. COMMENTED OUT AS OUTSIDE OF SCOP WITH METHOD 2e BEING USED OUTSIDE dc SCOPE */
 // JHU Additional Step 2d
 // create a function that produces a random number from 1 to 5 (inclusively).
 
-function randNumber1through5(){
-  return Math.floor(5 * Math.random()) + 1;
-};
+// function randNumber1through5(){
+//   return Math.floor(5 * Math.random()) + 1;
+// };
 
-// **BELOW DOES NOT WORK WITHOUT A BUTTON in about.html TO MANUALLY REFRESH.**
+// **BELOW DID NOT WORK WITHOUT A BUTTON in about.html TO MANUALLY REFRESH. CODE AT TOP WORKS**
 // JHU Additional Step 2e
 // Use that random function to assign values to each classX property. An empty star should have its class value be class="fa fa-star-o". 
 // A filled star should have its class value be class="fa fa-star". The empty star, if any, should be the last one in the list.
@@ -226,27 +182,27 @@ function randNumber1through5(){
 // BIG ISSUE: When trying to implement the below in the loadAboutContent function I kept getting the same type error of referencing
 // undefined. Even using setTimeout() did not resolve the issue.
 
-dc.randRating = function(){
-  //Randomly generate the number of stars using function from 2d
-  var numberOfStars = randNumber1through5();
+// dc.randRating = function(){
+//   //Randomly generate the number of stars using function from 2d
+//   var numberOfStars = randNumber1through5();
   
-  // From the first span up until the number of stars, set the class to fill in the stars.
-  for(var i = 0; i < numberOfStars; i++){
-    document.getElementById('main-content').getElementsByTagName('span')[i].className = "fas fa-star";
-  }
+//   // From the first span up until the number of stars, set the class to fill in the stars.
+//   for(var i = 0; i < numberOfStars; i++){
+//     document.getElementById('main-content').getElementsByTagName('span')[i].className = "fas fa-star";
+//   }
 
-  // From the span after the number of stars (array index = number of stars) to 5, set the class to put empty stars
-  for(var j = numberOfStars; j < 5; j++){
-    document.getElementById('main-content').getElementsByTagName('span')[j].className = "far fa-star";
-  }
+//   // From the span after the number of stars (array index = number of stars) to 5, set the class to put empty stars
+//   for(var j = numberOfStars; j < 5; j++){
+//     document.getElementById('main-content').getElementsByTagName('span')[j].className = "far fa-star";
+//   }
 
-  // JHU Additioanl Step 3 
-  // Display the numeric/textual number of stars right next to the star icons. For example, after the 4 filled 
-  // in stars and one empty star, it should say the words “4-star rating”.
+//   // JHU Additioanl Step 3 
+//   // Display the numeric/textual number of stars right next to the star icons. For example, after the 4 filled 
+//   // in stars and one empty star, it should say the words “4-star rating”.
   
-  // NOTE: Using thie DOM method we can set the inner HTML of the last span element to show the textual rating
-  document.getElementById('main-content').getElementsByTagName('span')[4].innerHTML = " " + numberOfStars + "-Star Rating";
-}
+//   // NOTE: Using thie DOM method we can set the inner HTML of the last span element to show the textual rating
+//   document.getElementById('main-content').getElementsByTagName('span')[4].innerHTML = " " + numberOfStars + "-Star Rating";
+// }
 
 
 // Given array of category objects, returns a random category object.
@@ -462,3 +418,44 @@ function insertItemPortionName(html,
 global.$dc = dc;
 
 })(window);
+
+// JHU Additional Step 2d
+// create a function that produces a random number from 1 to 5 (inclusively).
+
+function randNumber1through5(){
+  return Math.floor(5 * Math.random()) + 1;
+};
+
+
+// JHU Additional Step 2e
+// Use that random function to assign values to each classX property. An empty star should have its class value be class="fa fa-star-o". 
+// A filled star should have its class value be class="fa fa-star". The empty star, if any, should be the last one in the list.
+
+// NOTES: The insertProperty function as I saw it is explicitly used to change the contents of the propName within "{{ }}"
+// JavaScript does not seem to have an overload feature to build versions of functions with alternate paramaters so I kept it within
+// terms of how the Question was asked.
+// A classmate asked this question in the forums but did not get an answer.
+// If there is a way to implement the current insertProperty function to set the rating please let me know. Thanks!
+// Also as mentioend in the about.html, the class name for stars is different in Font Awesome 5.
+
+function randRating(){
+  //Randomly generate the number of stars using function from 2d
+  var numberOfStars = randNumber1through5();
+  
+  // From the first span up until the number of stars, set the class to fill in the stars.
+  for(var i = 0; i < numberOfStars; i++){
+    document.getElementById('main-content').getElementsByTagName('span')[i].className = "fas fa-star";
+  }
+
+  // From the span after the number of stars (array index = number of stars) to 5, set the class to put empty stars
+  for(var j = numberOfStars; j < 5; j++){
+    document.getElementById('main-content').getElementsByTagName('span')[j].className = "far fa-star";
+  }
+
+  // JHU Additioanl Step 3 
+  // Display the numeric/textual number of stars right next to the star icons. For example, after the 4 filled 
+  // in stars and one empty star, it should say the words “4-star rating”.
+  
+  // NOTE: Using thie DOM method we can set the inner HTML of the last span element to show the textual rating
+  document.getElementById('main-content').getElementsByTagName('span')[4].innerHTML = " " + numberOfStars + "-Star Rating";
+}
